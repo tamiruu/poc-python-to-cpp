@@ -23,5 +23,8 @@
     <ClInclude Include="Symbol_table.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="python_to_c_function.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
