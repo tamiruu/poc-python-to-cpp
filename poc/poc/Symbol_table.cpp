@@ -29,9 +29,14 @@ std::vector<std::string> Symbol_table_entre::getType()
 	return _type;
 }
 
+bool Symbol_table_entre::operator<(const Symbol_table_entre& other) const
+{
+	return _lines[0] <= other._lines[0];
+}
+
 void Symbol_table::insert(std::string name, Symbol_table_entre entre)
 {
-	_entries[name] = entre;
+	_entries.insert(std::make_pair(name,entre));
 }
 
 Symbol_table_entre Symbol_table::getEntre(std::string name)
