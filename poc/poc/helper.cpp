@@ -92,6 +92,14 @@ bool is_operator(std::string word) {
 	return false;
 }
 
+bool is_punctuation(std::string word) {
+	std::string punctuations[3] = { "(", ")", "\n" };
+	if (std::find(std::begin(punctuations), std::end(punctuations), word) != std::end(punctuations))
+	{
+		return true;
+	}
+	return false;
+}
 std::string checkScope(int line, const std::string& name, const std::string& file_content, Symbol_table& table)
 {
 	std::string scope;

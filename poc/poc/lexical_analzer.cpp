@@ -2,14 +2,26 @@
 
 std::vector<std::string> clean_tab_and_space(std::vector<std::string>& code) {
     std::vector<std::string> words;
-    for (std::vector<std::string>::iterator i = code.begin(); i != code.end(); ++i)
+    for (int i = 0; i < code.size(); i++)
     {
         std::string content = "";
-        for (int j = 0; j < i->size(); j++)
+        for (int j = 0; j < code[i].size(); j++)
         {
-            if (i[j] != " " && i[j] != "\t")
+            if (code[i][j] != ' ' && code[i][j] != '\t' && code[i][j] != '\n')
             {
-                content += i[j];
+                if (code[i][j] == '(' || code[i][j] == ')')
+                {
+                    if (content != "")
+                    {
+                        words.push_back(content);
+                    }
+                    content = code[i][j];
+                    words.push_back(content);
+                    content = "";
+                }
+                else {
+                    content += code[i][j];
+                }
             }
             else
             {
@@ -18,27 +30,32 @@ std::vector<std::string> clean_tab_and_space(std::vector<std::string>& code) {
                     words.push_back(content);
                     content = "";
                 }
-            }// hi iuwe dwejniof
+                if (code[i][j] == '\n')
+                {
+                    words.push_back("\n");
+                }
+            }
         }
     }
+    return words;
 }
 
 void clean_comments(std::vector<std::string>& code) {
-    for (std::vector<std::string>::iterator i = code.begin(); i != code.end(); ++i)
+    for (int i = 0; i < code.size(); i++)
     {
         std::string content = "";
-        for (int j = 0; j < i->size(); j++)
+        for (int j = 0; j < code[i].size(); j++)
         {
-            if (i[j] != "#" )
+            if (code[i][j] != '#' )
             {
-                content += i[j];
+                content += code[i][j];
             }
             else {
                 break;
             }
         }
         content += "\n";
-        *i = content;
+        code[i] = content;
     }
 } 
 
@@ -57,17 +74,32 @@ std::vector<token> tokenizer(std::vector<std::string>& code, Symbol_table table)
         if (is_keywords(*i))
         {
             token tok(*i, "keyword");
+            tokens.push_back(tok);
         }
         else if (is_operator(*i))
         {
             token tok(*i, "operator");
+            tokens.push_back(tok);
         }
-        else if () {
-
+        else if (table.getEntre(*i).isVariable()) 
+        {
+            token tok(*i, "identifier");
+            tokens.push_back(tok);
         }
         else if (checkType(*i) == "int" || checkType(*i) == "float" || checkType(*i) == "str")
         {
             token tok(*i, "constant");
+            tokens.push_back(tok);
+        }
+        else if (table.getEntre(*i).isFunction())
+        {
+            token tok(*i, "function");
+            tokens.push_back(tok);
+        }
+        else if (is_punctuation(*i))
+        {
+            token tok(*i, "punctuation");
+            tokens.push_back(tok);
         }
     }
     return tokens;

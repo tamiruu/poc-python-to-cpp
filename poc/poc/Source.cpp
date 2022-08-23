@@ -70,7 +70,7 @@ int main() {
 		if (str.size() > 0)
 			code.push_back(str);
 	}
-	tokenizer(code);
+	tokenizer(code, table);
 	//syntax analyzer
 
 	file.close();

@@ -11,6 +11,8 @@ std::string checkType(std::string value);
 
 bool is_keywords(std::string word);
 bool is_operator(std::string word);
+bool is_punctuation(std::string word);
+
 
 
 std::string checkScope(int line, const std::string& name, const std::string& file_content, Symbol_table& table);

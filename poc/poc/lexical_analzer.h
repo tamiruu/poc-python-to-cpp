@@ -15,4 +15,4 @@ private:
 
 std::vector<std::string> clean_tab_and_space(std::vector<std::string>& code);
 void clean_comments(std::vector<std::string>& code);
-std::vector<token> tokenizer(std::vector<std::string>& code);
+std::vector<token> tokenizer(std::vector<std::string>& code, Symbol_table table);
