@@ -73,3 +73,19 @@ std::string checkType(std::string value)
 			type = "int";
 	}
 }
+bool is_keywords(std::string word) {
+	std::string keywords[36] = { "False", "await", "else", "import", "pass", "None", "break", "except", "in", "raise", "True", "class", "finally", "is", "return", "try", "and", "continue", "for", "lambda", "try", "as", "def", "from", "nonlocal", "while", "assert", "del", "global", "not", "with", "async", "elif", "if", "or", "yield" };
+	if (std::find(std::begin(keywords), std::end(keywords), word) != std::end(keywords))
+	{
+		return true;
+	}
+	return false;
+}
+bool is_operator(std::string word) {
+	std::string operators[31] = {"+", "-", "*", "/", "//", "%", "**", "=", "<", "==", "!=", ">=", "<=", "&", "|", "~", "^", ">>", "<<", "+=", "-=", "*=", "/=", "%=", "//=", "**=", "&=", "|=", "^=", ">>=", "<<=" };
+	if (std::find(std::begin(operators), std::end(operators), word) != std::end(operators))
+	{
+		return true;
+	}
+	return false;
+}
