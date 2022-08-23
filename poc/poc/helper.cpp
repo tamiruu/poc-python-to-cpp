@@ -24,6 +24,7 @@ bool checkName(std::string& name, int pos, const std::string& file_content)
 		if (file_content[i] >= '0' && file_content[i] <= '9' && name.size() > 0)
 			name += file_content[i];
 	}
+	return invalid;
 }
 
 std::string checkType(std::string value)
@@ -71,5 +72,21 @@ std::string checkType(std::string value)
 		}
 		else
 			type = "int";
+	}
+}
+
+std::string checkScope(int line, const std::string& name, const std::string& file_content, Symbol_table& table)
+{
+	std::string scope;
+	if (file_content.rfind(name, 0) == 0)
+		scope = "global";
+	else
+	{
+		std::map<std::vector<int>, std::string> functions = table.getFunctions();
+		for (auto i : functions)
+		{
+			if (i.first[0] < line && i.first[1] >= line)
+				scope = i.second;
+		}
 	}
 }

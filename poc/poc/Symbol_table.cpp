@@ -4,12 +4,12 @@ Symbol_table_entre::Symbol_table_entre(std::vector<std::string>& type, std::stri
 {
 	_type = type;
 	_scope = scope;
-	_line = line;
+	_lines = line;
 }
 
-std::vector<int> Symbol_table_entre::get_line()
+std::vector<int> Symbol_table_entre::get_lines()
 {
-	return _line;
+	return _lines;
 }
 
 std::string Symbol_table_entre::getScope()
@@ -46,7 +46,7 @@ std::map<std::vector<int>, std::string> Symbol_table::getFunctions()
 	{
 		if (it->second.isFunction())
 		{
-			functions[it->second.get_line()] = it->first;
+			functions[it->second.get_lines()] = it->first;
 		}
 	}
 	return functions;

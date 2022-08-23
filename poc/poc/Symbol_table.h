@@ -7,14 +7,14 @@
 class Symbol_table_entre {
 public:
 	Symbol_table_entre(std::vector<std::string>& type, std::string& _scope, std::vector<int> line);
-	std::vector<int> get_line();
+	std::vector<int> get_lines();
 	std::string getScope();
 	bool isFunction();
 	std::vector<std::string> getType();
 private:
 	std::vector<std::string> _type;
 	std::string _scope;
-	std::vector<int> _line;
+	std::vector<int> _lines;
 };
 
 class Symbol_table {
