@@ -64,6 +64,16 @@ token::token(std::string value, std::string type) {
     this->type = type;
 }
 
+std::string token::get_token_value()
+{
+    return this->token_value;
+}
+
+std::string token::get_type()
+{
+    return this->type;
+}
+
 std::vector<token> tokenizer(std::vector<std::string>& code, Symbol_table table) {
     std::vector<token> tokens;
     std::vector<std::string> words;

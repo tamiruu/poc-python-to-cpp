@@ -7,7 +7,10 @@
 class token
 {
 public:
+	token() {};//neccessary for syntax analyzer to work
 	token(std::string value, std::string type);
+	std::string get_token_value();
+	std::string get_type();
 private:
 	std::string token_value;
 	std::string type;

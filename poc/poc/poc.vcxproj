@@ -143,12 +143,14 @@
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="helper.cpp" />
     <ClCompile Include="Symbol_table.cpp" />
+    <ClCompile Include="syntax analyzer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="helper.h" />
     <ClInclude Include="lexical_analzer.h" />
     <ClInclude Include="Symbol_table.h" />
     <ClInclude Include="python_to_c_function.h" />
+    <ClInclude Include="syntax analyzer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

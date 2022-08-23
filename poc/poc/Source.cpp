@@ -1,11 +1,12 @@
 #include <iostream>
-#include "Symbol_table.h"
 #include <fstream>
-#include "python_to_c_function.h"
 #include <string> 
 #include <algorithm>
+#include "Symbol_table.h"
+#include "python_to_c_function.h"
 #include "helper.h"
 #include "lexical_analzer.h"
+#include "syntax analyzer.h"
 int main() {
 	std::ifstream file;
 	file.open("test.py");
@@ -70,8 +71,9 @@ int main() {
 		if (str.size() > 0)
 			code.push_back(str);
 	}
-	tokenizer(code, table);
+	std::vector<token> tokens = tokenizer(code, table);
 	//syntax analyzer
+	syntax_tree_node* head = syntax_tree_node::create_syntax_tree(tokens);
 
 	file.close();
 	return 0;
