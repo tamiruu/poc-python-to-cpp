@@ -11,6 +11,7 @@ public:
 	syntax_tree_node* get_right();
 	void set_left(syntax_tree_node* left);
 	void set_right(syntax_tree_node* right);
+	void set_token(token tok);
 	static syntax_tree_node* create_syntax_tree(std::vector<token>& tokens);
 private:
 	syntax_tree_node* _left;

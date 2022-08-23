@@ -39,6 +39,11 @@ void syntax_tree_node::set_right(syntax_tree_node* right)
 	_right = right;
 }
 
+void syntax_tree_node::set_token(token tok)
+{
+	_token = tok;
+}
+
 syntax_tree_node* syntax_tree_node::create_syntax_tree(std::vector<token>& tokens)
 {
 	bool error = false;

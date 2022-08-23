@@ -1,9 +1,7 @@
 #pragma once
 #include <iostream>
-std::string python_to_c_function(std::string content){
-	if (content == "print")
-	{
-		return "printf";
-	}
-	return "error";
-}
+#include <vector>
+#include "helper.h"
+#include "syntax analyzer.h"
+#include "lexical_analzer.h"
+std::string python_to_c_function_printf(std::vector<token> function, Symbol_table& table);

@@ -30,6 +30,12 @@
     <ClCompile Include="syntax analyzer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="advanced_code_maker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="python_to_c_function.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Symbol_table.h">
@@ -45,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="syntax analyzer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="advanced_code_maker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

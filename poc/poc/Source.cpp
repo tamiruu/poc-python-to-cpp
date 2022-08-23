@@ -7,6 +7,7 @@
 #include "helper.h"
 #include "lexical_analzer.h"
 #include "syntax analyzer.h"
+#include "advanced_code_maker.h"
 int main() {
 	std::ifstream file;
 	file.open("test.py");
@@ -74,7 +75,8 @@ int main() {
 	std::vector<token> tokens = tokenizer(code, table);
 	//syntax analyzer
 	syntax_tree_node* head = syntax_tree_node::create_syntax_tree(tokens);
-
+	//advanced code maker
+	advanced_code_maker(head, table);
 	file.close();
 	return 0;
 }
