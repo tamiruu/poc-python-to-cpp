@@ -24,6 +24,13 @@ bool Symbol_table_entre::isFunction()
 	return false;
 }
 
+bool Symbol_table_entre::isVariable()
+{
+	if (std::find(_type.begin(), _type.end(), "variable") != _type.end())
+		return true;
+	return false;
+}
+
 std::vector<std::string> Symbol_table_entre::getType()
 {
 	return _type;

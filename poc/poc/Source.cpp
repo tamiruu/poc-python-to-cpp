@@ -29,6 +29,7 @@ int main() {
 				lines.push_back(line);
 				std::vector<std::string> types;
 				types.push_back(type);
+				types.push_back("variable");
 				table.insert(name, Symbol_table_entre(types, scope, lines));
 			}
 			else

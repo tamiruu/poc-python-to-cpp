@@ -11,6 +11,7 @@ public:
 	std::vector<int> get_lines();
 	std::string getScope();
 	bool isFunction();
+	bool isVariable();
 	std::vector<std::string> getType();
 	bool operator<(const Symbol_table_entre& other) const;
 private:
