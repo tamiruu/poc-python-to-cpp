@@ -139,12 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="lexical_analzer.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="helper.cpp" />
     <ClCompile Include="Symbol_table.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="helper.h" />
+    <ClInclude Include="lexical_analzer.h" />
     <ClInclude Include="Symbol_table.h" />
     <ClInclude Include="python_to_c_function.h" />
   </ItemGroup>

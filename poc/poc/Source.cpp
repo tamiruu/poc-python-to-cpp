@@ -32,6 +32,8 @@ int main() {
 			}
 		}
 	}
+	file.clear();
+	file.seekg(0);
 	file.close();
 	return 0;
 }
