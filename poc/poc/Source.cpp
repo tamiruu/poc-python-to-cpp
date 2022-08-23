@@ -5,6 +5,7 @@
 #include <string> 
 #include <algorithm>
 #include "helper.h"
+#include "lexical_analzer.h"
 int main() {
 	std::ifstream file;
 	file.open("test.py");
@@ -60,8 +61,15 @@ int main() {
 	//rewind to the start of the file
 	file.clear();
 	file.seekg(0);
-
-
+	//lexical_analzer
+	std::vector <std::string> code;
+	std::string str;
+	while (std::getline(file, str))
+	{
+		if (str.size() > 0)
+			code.push_back(str);
+	}
+	tokenizer(code);
 	//syntax analyzer
 
 	file.close();

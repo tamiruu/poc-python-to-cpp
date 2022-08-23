@@ -73,6 +73,7 @@ std::string checkType(std::string value)
 		else
 			type = "int";
 	}
+	return type;
 }
 bool is_keywords(std::string word) {
 	std::string keywords[36] = { "False", "await", "else", "import", "pass", "None", "break", "except", "in", "raise", "True", "class", "finally", "is", "return", "try", "and", "continue", "for", "lambda", "try", "as", "def", "from", "nonlocal", "while", "assert", "del", "global", "not", "with", "async", "elif", "if", "or", "yield" };
@@ -105,4 +106,5 @@ std::string checkScope(int line, const std::string& name, const std::string& fil
 				scope = i.second;
 		}
 	}
+	return scope;
 }

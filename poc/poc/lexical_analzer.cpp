@@ -1,6 +1,7 @@
 #include "lexical_analzer.h"
 
-void clean_tab_and_space(std::vector<std::string>& code) {
+std::vector<std::string> clean_tab_and_space(std::vector<std::string>& code) {
+    std::vector<std::string> words;
     for (std::vector<std::string>::iterator i = code.begin(); i != code.end(); ++i)
     {
         std::string content = "";
@@ -10,8 +11,15 @@ void clean_tab_and_space(std::vector<std::string>& code) {
             {
                 content += i[j];
             }
+            else
+            {
+                if (content != "")
+                {
+                    words.push_back(content);
+                    content = "";
+                }
+            }// hi iuwe dwejniof
         }
-        *i = content;
     }
 }
 
@@ -39,27 +47,28 @@ token::token(std::string value, std::string type) {
     this->type = type;
 }
 
-std::vector<token> tokenizer(std::vector<std::string>& code) {
+std::vector<token> tokenizer(std::vector<std::string>& code, Symbol_table table) {
     std::vector<token> tokens;
+    std::vector<std::string> words;
     clean_comments(code);
-    
-    clean_tab_and_space(code);
-    for (std::vector<std::string>::iterator i = code.begin(); i != code.end(); ++i)
+    words = clean_tab_and_space(code);
+    for (std::vector<std::string>::iterator i = words.begin(); i != words.end(); ++i)
     {
-        for (int j = 0; j < i->size(); j++)
+        if (is_keywords(*i))
         {
-            if (is_keywords(i[j]))
-            {
-                token tok(i[j], "keyword");
-            }
-            else if (is_operator(i[j]))
-            {
-                token tok(i[j], "operator");
-            }
-            else if ((i[j]))
-            {
+            token tok(*i, "keyword");
+        }
+        else if (is_operator(*i))
+        {
+            token tok(*i, "operator");
+        }
+        else if () {
 
-            }
+        }
+        else if (checkType(*i) == "int" || checkType(*i) == "float" || checkType(*i) == "str")
+        {
+            token tok(*i, "constant");
         }
     }
+    return tokens;
 }
