@@ -36,8 +36,10 @@ std::string checkType(std::string value)
 		type = "string";
 	//numbers
 	int found = value.find_first_not_of("0123456789. \t");
-	if (found == std::string::npos)
+	if (found == std::string::npos || (found != std::string::npos && value[found] == '#'))
 	{
+		if (found != std::string::npos && value[found] == '#')
+			value = value.substr(0, found - 1);
 		std::string temp = "";
 		for (int i = 0; i < value.size(); i++)
 		{

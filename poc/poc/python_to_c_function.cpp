@@ -4,7 +4,7 @@ std::string python_to_c_function_printf(std::vector<token> function, Symbol_tabl
 	std::string res = "printf(\"%";
 	if (function.size() - 3 == 3)
 	{
-		if (function[2].get_type() == "identifier" && function[4].get_type() == "identifier" && table.getEntre(function[2].get_token_value()).getType()[0] == table.getEntre(function[4].get_token_value()).getType()[0])
+		if (function[2].get_type() == "identifier" && function[4].get_type() == "identifier" && (table.getEntre(function[2].get_token_value()).getType())[0] == (table.getEntre(function[4].get_token_value()).getType())[0])
 		{
 			std::string str = table.getEntre(function[2].get_token_value()).getType()[0];
 			if (str == "int")
@@ -15,7 +15,7 @@ std::string python_to_c_function_printf(std::vector<token> function, Symbol_tabl
 			{
 				res += "f\"";
 			}
-			res += function[2].get_token_value() + function[3].get_token_value() + function[4].get_token_value();
+			res += "," + function[2].get_token_value() + function[3].get_token_value() + function[4].get_token_value();
 		}
 	}
 	else {
@@ -30,9 +30,8 @@ std::string python_to_c_function_printf(std::vector<token> function, Symbol_tabl
 			{
 				res += "f\"";
 			}
-			res += function[2].get_token_value();
+			res += "," + function[2].get_token_value();
 		}
 	}
-	res += ");";
 	return res;
 }
