@@ -36,6 +36,9 @@
     <ClCompile Include="python_to_c_function.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="target_code_generator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Symbol_table.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="advanced_code_maker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="target_code_generator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

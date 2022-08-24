@@ -146,6 +146,7 @@
     <ClCompile Include="helper.cpp" />
     <ClCompile Include="Symbol_table.cpp" />
     <ClCompile Include="syntax analyzer.cpp" />
+    <ClCompile Include="target_code_generator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="advanced_code_maker.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="Symbol_table.h" />
     <ClInclude Include="python_to_c_function.h" />
     <ClInclude Include="syntax analyzer.h" />
+    <ClInclude Include="target_code_generator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

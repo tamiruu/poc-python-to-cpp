@@ -63,3 +63,10 @@ std::map<std::vector<int>, std::string> Symbol_table::getFunctions()
 	}
 	return functions;
 }
+
+bool Symbol_table::isExist(std::string name)
+{
+	if (_entries.find(name) == _entries.end())
+		return false;
+	return true;
+}

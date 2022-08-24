@@ -25,6 +25,7 @@ public:
 	void insert(std::string name, Symbol_table_entre entre);
 	Symbol_table_entre getEntre(std::string name);
 	std::map<std::vector<int>, std::string> getFunctions();
+	bool isExist(std::string);
 private:
 	std::map<std::string, Symbol_table_entre> _entries;
 };

@@ -8,6 +8,7 @@
 #include "lexical_analzer.h"
 #include "syntax analyzer.h"
 #include "advanced_code_maker.h"
+#include "target_code_generator.h"
 int main() {
 	std::ifstream file;
 	file.open("test.py");
@@ -72,11 +73,13 @@ int main() {
 		if (str.size() > 0)
 			code.push_back(str);
 	}
+	file.close();
 	std::vector<token> tokens = tokenizer(code, table);
 	//syntax analyzer
 	syntax_tree_node* head = syntax_tree_node::create_syntax_tree(tokens);
 	//advanced code maker
 	advanced_code_maker(head, table);
-	file.close();
+	//target code generator
+	generate_c_file(head, table);
 	return 0;
 }
